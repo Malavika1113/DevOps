@@ -1,6 +1,10 @@
 name: wiki download
 on:
   workflow_dispatch:
+    inputs:
+      Version:
+        type: string
+        required: true
   
 jobs:
   cloneWIKI:
@@ -9,10 +13,15 @@ jobs:
     steps:
       - name: Download
         run: |
+          Version=${{ github.event.inputs.Version }}
           mkdir WIKI
           cd WIKI
           git clone https://github.com/Malavika1113/dotnetcore-hello-world.wiki.git
           ls -la
           cd dotnetcore-hello-world.wiki
           ls -la
+          cat Dashboard.org
+          sed -i "s/\bApp1Dev-[^ ]*/App1Dev-$Version/" Dashboard.org
+          echo "###################################"
+          echo " "
           cat Dashboard.org
