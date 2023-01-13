@@ -1,0 +1,15 @@
+name: wiki download
+on:
+  workflow_dispatch:
+  
+jobs:
+  cloneWIKI:
+    runs-on: ubuntu-latest
+    name: CloneWIKI
+    steps:
+      - name: Download
+        run: |
+          mkdir WIKI
+          cd WIKI
+          git clone https://github.com/Malavika1113/dotnetcore-hello-world.wiki.git
+          ls -la
