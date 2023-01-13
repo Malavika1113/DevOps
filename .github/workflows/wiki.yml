@@ -15,3 +15,4 @@ jobs:
           ls -la
           cd dotnetcore-hello-world.wiki
           ls -la
+          cat Dashboard.org
