@@ -8,8 +8,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - run: |
-          echo "Hello"
-          gh pr list --search "6e19442492c12b2ba0a9d12e2882b77592512e43" --state merged
+          ls -la
+          SHAA=$(cat .git/refs/heads/main)
+          gh pr list --search "$SHAA" --state merged
         env:
           GH_TOKEN: ${{ github.token }}
     
